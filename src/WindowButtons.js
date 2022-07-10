@@ -5,7 +5,7 @@ const WindowButton = () => {
 
 
     const fetchStats = () => {
-        let url = "https://yokogawarotorinfo.azurewebsites.net/api/TriggerRotorInfo?code=lvv480eSg5B-SIZmBA6AOILDYboz6I2_Vw-4rWuZbfUhAzFuIjbQEw==";
+        let url = "https://yokogawarotorinfo.azurewebsites.net/api/Function1?code=C8Fhp53BsSjfgYLOKQFVWm4FitWFlygKm2V_Gc3rAyNCAzFuEY2fMw==";
         fetch(url)
             .then(res => res.json())
             .then(data => {
