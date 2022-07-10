@@ -1,0 +1,77 @@
+:root{
+    --bgColor: black;
+    --buttonColor: #01fff2;
+}
+
+.WindowButtons{
+}
+
+#windowButtonGrid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1em;
+    grid-column-gap: 1em;
+    z-index: -1;
+
+}
+
+    #windowButtonGrid .button {
+          color: var(--buttonColor);
+          background-color: var(--bgColor);
+          border: 0.125em solid var(--buttonColor);
+          border-radius: 0.25em;
+          font-size: 1.5rem;
+          padding: 0.5em;
+          text-shadow: 0 0 0.5em var(--buttonColor);
+          box-shadow: inset 0 0 0.5em 0 var(--buttonColor), 0 0 0.5em 0 var(--buttonColor);
+          position: relative;
+          outline: none;
+        }
+
+      #windowButtonGrid .button::after{
+        content: "";
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        position: absolute;
+        box-shadow: 0 0 2em 0.25em var(--buttonColor);
+        opacity: 0;
+        background-color: var(--buttonColor);
+        z-index: 1;
+        transition: opacity 100ms linear;
+      } 
+
+    #windowButtonGrid .button::before{
+        content: "";
+        background: var(--buttonColor);
+        top: 120%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+
+        transform: perspective(3em) rotateX(40deg) scale(1, 0.35);
+        filter: blur(2em);
+        opacity: 0.1;
+      }
+
+    #windowButtonGrid .button:hover{
+        background: var(--buttonColor);
+        color: var(--bgColor);
+        text-shadow: none;
+      }
+
+    #windowButtonGrid .button:hover::after{
+        opacity: 0;
+      }
+
+    #windowButtonGrid .button:hover::before {
+        opacity: 1;
+      }
+
+    #windowButtonGrid .button:active{
+        transform: translateY(4px);
+      }
+
+ 

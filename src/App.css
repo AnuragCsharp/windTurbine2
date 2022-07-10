@@ -1,0 +1,12 @@
+html{
+    background-color: black;
+}
+
+.App {
+    background-color: black;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-gap: 1em;
+    grid-column-gap: 1em;
+}
+

@@ -1,0 +1,16 @@
+.Stats{
+    background-color: black;
+}
+
+#statData {
+    background-color: black;
+}
+
+#statData .item{
+    color: rgb(9, 216, 252);
+    font-weight: bold;
+}
+
+#statData .value{
+    color: rgb(0, 255, 106);
+}

@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/8422c513-1026-4f08-97f0-b3ce1c67ddc2/microsoft.web/sites/subscriptions/8422c513-1026-4f08-97f0-b3ce1c67ddc2/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/reactstaticdigitaltwinDemo",
+    "appService.deploySubpath": "."
+}
