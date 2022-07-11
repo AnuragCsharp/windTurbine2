@@ -3,9 +3,11 @@ import Engine from './scripts/engine.js'
 import {useEffect} from 'react';
 
 const Window = () => {
+    let canvas;
+    let engine;
 
     const handleLoad = () => {
-        let canvas = document.getElementById("glCanvas");
+        canvas = document.getElementById("glCanvas");
 
         let gl = canvas.getContext("webgl2");
       
@@ -14,7 +16,9 @@ const Window = () => {
             return;
         }
 
-        let engine = new Engine();
+        engine = new Engine();
+        
+
         engine.init(gl);
 
         engine.loop();
@@ -29,7 +33,7 @@ const Window = () => {
              }
         });
     
-    
+      
    
     return (
         <div className="Window" >

@@ -28,7 +28,12 @@ export default class engine{
 
     rpm = 2;
 
-    init(gl){
+    mouseDragging = false;
+    mouseLastX = 0;
+    mouseLastY = 0;
+    turnAngle = 0;
+
+       init(gl){
         this.gl = gl;
         this.ticks = 1000/60;
         this.shader = new ShaderProgram(this.gl, objectVertexShader,objectFragmentShader);
@@ -69,7 +74,7 @@ export default class engine{
         this.gl.enable(gl.DEPTH_TEST);
 
         this.attachListenersToButton();
-        this.setStatVariables();
+        this.initCallbacks();
     }
 
     loop(){
@@ -86,7 +91,6 @@ export default class engine{
     }
 
     update(){
-     //   this.square.rotate(2,1,0.5);
         if(this.rotateFan == true)
             this.windTurbineFan.rotate(this.rpm,0,0);
     }
@@ -112,9 +116,45 @@ export default class engine{
         }
     }
 
-    setStatVariables(){
-//        let rpm = document.getElementById('rpm');
-//        rpm.innerText = (this.rpm*10);
+    setRPM(val){
+        this.rpm = val/10;
+    }
+
+
+    initCallbacks() {
+        let canvas = document.getElementById("glCanvas");
+        canvas.onmousedown = this.mousedown;
+        canvas.onmouseup = this.mouseup;
+        canvas.onmousemove = this.mousemove;
+    }
+
+    mousedown = (event) => {
+
+            this.mouseDragging = true;
+
+    }
+
+    mouseup = (event) => {
+       this.mouseDragging = false; 
+    }
+
+    mousemove = (event) => {
+        let x = event.clientX;
+        let y = event.clientY;
+        if(this.mouseDragging){
+            let factor = 0.1;
+            let dx = factor * (x - this.mouseLastX);
+            let dy = factor * (y - this.mouseLastY);
+            this.turnWindTurbine(dx); 
+        }
+
+        this.mouseLastX = x;
+        this.mouseLastY = y;
+    }
+    
+    turnWindTurbine = (rotY) => {
+       this.windTurbineBase.rotate(0,rotY,0);
+        this.windTurbineFan.rotate(0,rotY,0);
     }
 
 }

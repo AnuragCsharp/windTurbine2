@@ -5,12 +5,14 @@ const WindowButton = () => {
 
 
     const fetchStats = () => {
-        let url = "https://yokogawarotorinfo.azurewebsites.net/api/Function1?code=C8Fhp53BsSjfgYLOKQFVWm4FitWFlygKm2V_Gc3rAyNCAzFuEY2fMw==";
+
+            let url = "https://yokogawarotorinfo.azurewebsites.net/api/Function1?code=C8Fhp53BsSjfgYLOKQFVWm4FitWFlygKm2V_Gc3rAyNCAzFuEY2fMw==";
+
         fetch(url)
             .then(res => res.json())
             .then(data => {
                 let rpm = data.MotorInfo.RPM;
-                let temp = data.MotorInfo.temprature;
+                let temp = data.MotorInfo.Temprature;
                 let status = data.MotorInfo.OverallStatus;
 
                 document.getElementById("statRpm").innerText = rpm;
